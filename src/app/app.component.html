@@ -1,47 +1,4 @@
-<header><nav class="navbar navbar-expand-lg navbar-dark bg-red">
-  <img src="../assets/images/icona-cibando.png" class="icona-cibando">
-  <a class="navbar-brand" href="#">Cibando</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"><i class="pi pi-home"></i>Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="pi pi-book"></i>Ricette</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="pi pi-envelope"></i>Contatti</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-</header>
+<app-header></app-header>
 
-<ngb-carousel *ngIf="images.length>1">
-  <ng-template ngbSlide *ngFor="let image of images;let i=index">
-    <div class="picsum-img-wrapper">
-      <img [src]="percorso+image.id+'.jpg'" alt="image.lable" />
-    </div>
-    <div class="carousel-caption" >
-      <h3>{{image.lable}}</h3>
-      <span *ngIf="images.length===image.id">Sei all'ultima foto</span>
-    </div>
-  </ng-template>
-</ngb-carousel>
-
-<div *ngIf="images.length === 1">
-  <div class="image-no-carousel" [style]="'background: url(' + percorso + images[0].id + '.jpg); background-repeat: no-repeat; background-position: center; background-size: cover;'">
-  </div>
-  <div class="carousel-caption-no-carousel">
-    <h3>{{images[0].lable}}</h3>
-  </div>
-</div>
-
-<div class="container-title">
-  <h1>App di esempio</h1>
-</div>
 
 <router-outlet />

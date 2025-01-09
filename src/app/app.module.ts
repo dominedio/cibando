@@ -5,10 +5,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CaroselComponent } from './components/shared/carosel/carosel.component';
+import { HomeComponent } from './components/home/home.component';
+import { RecipesComponent } from './components/recipes/recipes.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CaroselComponent,
+    HomeComponent,
+    RecipesComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
