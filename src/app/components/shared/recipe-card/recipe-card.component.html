@@ -1,0 +1,10 @@
+<div class="container-card">
+  <div class="card" style="width: 18rem;" *ngFor="let ricetta of ricette">
+    <div class="card-image"[ngStyle]="{'background-image':'url('+ ricetta.image +')'}"></div>
+    <div class="card-body">
+      <h5 class="card-title">{{ricetta.title}}</h5>
+      <p class="card-text">{{ricetta.description}}</p>
+      <a class="btn btn-primary" routerLink="dettaglio/{{ricetta._id}}">Visualizza</a>
+    </div>
+  </div>
+</div>

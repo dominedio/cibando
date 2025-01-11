@@ -3,10 +3,17 @@
 @import "primeng/resources/primeng.css";
 @import"./../node_modules/bootstrap/dist/css/bootstrap.css";
 @import "primeicons/primeicons.css";
+@import "./app/styles/colori.scss";
+
 body{
   margin: 0;
   padding: 0;
   font-family: "Montserrat", serif;
+}
+
+.btn-primary{
+  background-color: $primary-color-1;
+  border-color: $grey-2;
 }
 
 /* Importing Bootstrap SCSS file. */

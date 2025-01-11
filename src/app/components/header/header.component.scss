@@ -1,8 +1,10 @@
+@import "../../styles/colori.scss";
+
 .bg-red{
-  background-color: #8e210b !important;
+  background-color: $primary-color-1 !important;
 }
 header{
-  background-color: #8e210b !important;
+  background-color: $primary-color-1 !important;
   padding-left: 20px;
 }
 .icona-cibando{
