@@ -4,7 +4,8 @@
     <div class="card-body">
       <h5 class="card-title">{{ricetta.title}}</h5>
       <p class="card-text">{{ricetta.description}}</p>
-      <a class="btn btn-primary" routerLink="dettaglio/{{ricetta._id}}">Visualizza</a>
+      <a class="btn btn-primary" [routerLink]="['/dettaglio', ricetta._id]">Visualizza</a>
     </div>
   </div>
 </div>
+

@@ -1,0 +1,33 @@
+@import "../../../styles/colori.scss";
+.image-container {
+  padding-top: 1px;
+  width: 100%;          /* Larghezza del contenitore */
+  height: 400px;         /* Altezza del contenitore */
+  overflow: hidden;     /* Nasconde eventuali parti dell'immagine che escono dal contenitore */
+}
+
+.image-ricetta {
+  width: 100%;          /* Larghezza dell'immagine al 100% */
+  height: 100%;         /* Altezza dell'immagine al 100% */
+  object-fit: cover;    /* L'immagine copre tutto il contenitore senza distorsioni */
+}
+h4 {
+  font-family: "Montserrat";
+  font-weight: bold;
+  color: $primary-color-1;
+  padding-left: 15px;
+}
+.padding{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.date{
+  text-align: right;
+  font-size: 11px;
+  padding-right: 10px;
+}
+.container-space{
+  width: 100%;
+  height: 15px;
+  background-color: white;
+}

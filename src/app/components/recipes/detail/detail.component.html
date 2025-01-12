@@ -1,1 +1,11 @@
-<div class="image-recipe" [style]="'background: url(' + percorso + images[0].id + '.jpg); background-repeat: no-repeat; background-position: center; background-size: cover;'">
+<div class="image-container">
+  <img class="image-ricetta" [src]="ricetta.image" alt="ricetta.title">
+</div>
+<div class="container-space"></div>
+<h4>{{ricetta.title}}</h4>
+<div class="container-space"></div>
+<div class="padding">{{ricetta.description}}</div>
+<div class="container-space"></div>
+<p class="date">La ricetta è stata pubblicata il {{ ricetta.date | date:'EEEE dd MMMM yyyy' }}</p>
+
+

@@ -9,5 +9,5 @@ import { Recipe } from '../../../models/recipes.model';
   styleUrl: './recipe-card.component.scss'
 })
 export class RecipeCardComponent {
-  @Input() ricette: Recipe[]=[]
+  @Input() ricette: Recipe[] | undefined;
 }
