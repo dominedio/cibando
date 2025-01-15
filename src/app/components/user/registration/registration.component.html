@@ -1,0 +1,181 @@
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrazione</p>
+
+                <form class="mx-1 mx-md-4"[formGroup]="form" (ngSubmit)="onSubmit()">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" class="form-control" name="name" formControlName="name" />
+                      <label class="form-label" for="form3Example1c">Nome</label>
+                      <p class="is-danger" *ngIf="!form.get('name')?.valid && form.get('name')?.touched">
+                        il campo nome è obbligatorio
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="email" id="form3Example3c" class="form-control" name="email" formControlName="email"/>
+                      <label class="form-label" for="form3Example3c">Email</label>
+                      <p class="is-danger" *ngIf="form.controls.email.hasError('required') && form.get('email')?.touched">
+                        Il campo email è obbligatorio
+                      </p>
+                      <p class="is-danger" *ngIf="form.controls.email.hasError('email')">
+                        Il campo email deve contenere un indirizzo e-mail valido
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <p-password class="form-control" name="password" formControlName="password" [toggleMask]="true"  [strongRegex]="regex"/>
+
+                      <label class="form-label" for="form3Example4c">Password</label>
+                      <p class="is-danger" *ngIf="form.controls.password.hasError('required') && form.get('password')?.touched">
+                        il campo password è obbligatorio
+                      </p>
+                      <p class="is-danger" *ngIf="form.controls.password.hasError('pattern')">
+                        il campo password deve contenere almeno un numero, una minuscola, una maiuscola, un carettere speciale ed avere almeno 6 caratteri
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4cd" class="form-control" name="ripetiPassword" formControlName="ripetiPassword" (ngModelChange) = "equal()"/>
+                      <label class="form-label" for="form3Example4cd">Conferma password</label>
+                      <p class="is-danger" *ngIf="!form.get('ripetiPassword')?.valid && form.get('ripetiPassword')?.touched" >
+                        il campo conferma password è obbligatorio
+                      </p>
+                      <p class="is-danger" *ngIf="valid" >
+                        la pasword è diversa
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" name="accettazione" formControlName="accettazione"/>
+                    <label class="form-check-label" for="form2Example3">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                    <p class="is-danger" *ngIf="!form.get('accettazione')?.valid && form.get('accettazione')?.touched">
+                      l' accettazione è obbligatoria
+                    </p>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button [disabled]="validButton()" type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Registrati</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+ <!-- -- Esempio Template Driven -- -->
+
+
+<!-- <section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrazione</p>
+
+                <form class="mx-1 mx-md-4" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" class="form-control" name="name" ngModel />
+                      <label class="form-label" for="form3Example1c">Nome</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="email" id="form3Example3c" class="form-control" name="email" ngModel/>
+                      <label class="form-label" for="form3Example3c">Email</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4c" class="form-control" name="password" ngModel/>
+                      <label class="form-label" for="form3Example4c">Password</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4cd" class="form-control" name="ripetiPassword" ngModel/>
+                      <label class="form-label" for="form3Example4cd">Conferma password</label>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" name="accettazione" ngModel/>
+                    <label class="form-check-label" for="form2Example3">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Registrati</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

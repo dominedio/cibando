@@ -1,11 +1,21 @@
-<div class="image-container">
-  <img class="image-ricetta" [src]="ricetta.image" alt="ricetta.title">
+<div *ngIf="ricetta ; else noData">
+  <div class="image-container">
+    <img class="image-ricetta" [src]="ricetta.image" alt="ricetta.title">
+  </div>
+  <div class="container-space"></div>
+  <h4>{{ricetta.title}}</h4>
+  <div class="container-space"></div>
+  <div class="padding">{{ricetta.description}}</div>
+  <div class="container-space"></div>
+  <h6>Difficoltà:</h6>
+  <p>
+    <img [src]="percorsoStelline + ricetta.difficulty +'.png'" alt="ricetta.difficulty" class="difficolta"/>
+  </p>
+  <p class="date">La ricetta è stata pubblicata il {{ ricetta.date | date:'EEEE dd MMMM yyyy' }}</p>
 </div>
-<div class="container-space"></div>
-<h4>{{ricetta.title}}</h4>
-<div class="container-space"></div>
-<div class="padding">{{ricetta.description}}</div>
-<div class="container-space"></div>
-<p class="date">La ricetta è stata pubblicata il {{ ricetta.date | date:'EEEE dd MMMM yyyy' }}</p>
 
-
+<ng-template #noData>
+  <div>
+    Spiacenti ricetta non più disponibile
+  </div>
+</ng-template>

@@ -16,5 +16,11 @@ body{
   border-color: $grey-2;
 }
 
+.is-danger{
+  color: rgba(255, 0, 0, 0.579);
+  position: relative;
+  top: -5px;
+}
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

@@ -3,6 +3,40 @@
 <div class="container-title">
   <h1 [ngClass]="evideziato ? 'testoEvidenziato' : ''" (click)="onEvidenziazione()" style="cursor: pointer;">Benvenuti in Cibando</h1>
   <p [ngStyle]="{'background-color': evideziato ? 'yellow' : 'white'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ab possimus repudiandae, explicabo impedit nesciunt dicta non quae id ipsa vel, laborum quas, magni natus. Sint minus veniam obcaecati tempore?</p>
-<app-recipes></app-recipes>
+<h2>Ultime Ricette</h2>
+  <app-recipe-card [ricette]="ricette"></app-recipe-card>
 </div>
 
+
+<!-- MODALE-1 -->
+<ng-template #modaleUno let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Elimina Prodotto</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>Sei sicuro di eliminare il prodotto</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.dismiss()" ngbAutofocus>ANNULLA</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close()">Close</button>
+	</div>
+</ng-template>
+
+<!-- MODALE-2 -->
+<ng-template #modaleRegistrazione let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Grazie per esserti registrato</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<h3>Ecco i tuoi dati</h3>
+    <ul>
+      <li>Nome: {{this.datiRegistrazione['nome']}}</li>
+      <li>Nome: {{this.datiRegistrazione['email']}}</li>
+    </ul>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()">CHIUDI</button>
+	</div>
+</ng-template>
