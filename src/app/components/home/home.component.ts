@@ -13,7 +13,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HomeComponent {
 
-  @ViewChild('modaleRegistrazione') modale: ElementRef;
+  @ViewChild('modaleRegistrazione',{static: false}) modaleRegistrazione!: ElementRef;
 
 
   evideziato= false;
@@ -50,8 +50,8 @@ export class HomeComponent {
     this.userService.datiUser.subscribe( res => {
       console.log(res);
       this.datiRegistrazione = res;
-      if res!== null
-      this.openModal(this.modalRegistrazione)
+      if (res!== null){this.openModal(this.modaleRegistrazione);
+      }
     })
   }
 
@@ -63,7 +63,9 @@ export class HomeComponent {
     (res) => {
       console.log(('azione da eseguire'+ res));
       this.userService.datiUser.next(null);
-    }).catch((error) => console.log('nessuna azione da eseguire'));
+    }).catch((error) =>{
+      this.userService.datiUser.next(null);
+      console.log('nessuna azione da eseguire')});
   }
 
 }
