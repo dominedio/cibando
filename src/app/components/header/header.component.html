@@ -10,7 +10,7 @@
         <a class="nav-link" routerLink="home"><i class="pi pi-home"></i>Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="ricette"><i class="pi pi-book"></i>Ricette</a>
+        <a class="nav-link" routerLink="ricette/list"><i class="pi pi-book"></i>Ricette</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="contatti"><i class="pi pi-envelope"></i>Contatti</a>
@@ -27,7 +27,7 @@
           <a (click)="logout()">Esci</a>
     </li>
       <li class="nav-item" *ngIf="isAdmin()">
-        <a class="nav-link" routerLink="newrecipe"><i class="pi pi-envelope"></i>Nuova Ricetta</a>
+        <a class="nav-link" routerLink="recipe/newrecipe"><i class="pi pi-envelope"></i>Nuova Ricetta</a>
       </li>
     </ul>
   </div>
