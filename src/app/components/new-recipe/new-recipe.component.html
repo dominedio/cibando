@@ -1,0 +1,34 @@
+<div class="center">
+  <h1>Inserisci la nuova ricetta</h1>
+</div>
+<div class="center">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Titolo</label>
+      <input type="text" id="title" formControlName="title">
+      <p class="is-danger" *ngIf="!form.get('title')?.valid && form.get('title')?.touched">
+        il campo titolo è obbligatorio
+      </p>
+    </div>
+    <div>
+      <label for="descripition">Descrizione</label>
+      <p-editor formControlName="descripition" [style]="{ height: '320px' }" />
+      <p class="is-danger" *ngIf="!form.get('description')?.valid && form.get('description')?.touched">
+        il campo descrizione è obbligatorio
+      </p>
+    </div>
+    <div>
+      <label for="image">Immagine</label>
+      <input type="text" id="image" formControlName="image">
+      <p class="is-danger" *ngIf="!form.get('image')?.valid && form.get('image')?.touched">
+        il campo immagine è obbligatorio
+      </p>
+    </div>
+    <div>
+      <label for="difficulty">Imposta la difficoltà</label>
+      <p-rating formControlName="difficulty" id="difficulty" [cancel]="false" />
+    </div>
+
+    <button  type=" submit">Invia</button>
+  </form>
+</div>

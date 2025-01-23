@@ -1,0 +1,126 @@
+
+// #container-login {
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: nowrap;
+//   width: 50%;
+//   margin: auto;
+//   height: 50vh;
+//   justify-content: center;
+
+//   .container-row {
+//     margin-bottom: 15px;
+//     height: 40px;
+//   }
+// }
+
+// :host ::ng-deep .p-inputtext {
+//   border: 1px solid #dfdfdf !important;
+//   width: 100% !important;
+//   padding-top: 30px;
+// }
+
+// :host ::ng-deep eyeicon.p-element.p-icon-wrapper {
+//   position: relative;
+//   right: 31px;
+//   top: 21px;
+// }
+
+// div#error-message {
+//   font-size: 13px;
+//   color: #bd1313;
+//   text-align: center;
+// }
+
+// div#container-btn {
+//   /* width: 113px; */
+//   display: flex;
+//   justify-content: center;
+//   flex-wrap: wrap;
+//   align-content: center;
+//   margin-top: 30px;
+// }
+
+// :host ::ng-deep button.p-ripple.p-element.p-button.p-component {
+//   border-radius: 5px;
+//   padding: 18px;
+//   background: #8e210a;
+//   border: none;
+// }
+
+// #registrati {
+//   margin-top: 20px;
+// }
+
+/* Contenitore principale */
+#container-login {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+/* Campi di input */
+.input-field {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Pulsante di accesso */
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Messaggio di errore */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Link di registrazione */
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.register-link a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Contenitore righe */
+.container-row {
+  margin-bottom: 16px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #container-login {
+    padding: 15px;
+  }
+
+  .login-btn {
+    font-size: 14px;
+  }
+
+  .register-link {
+    font-size: 14px;
+  }
+}

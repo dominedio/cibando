@@ -6,6 +6,11 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
+import { ContattiComponent } from './components/contatti/contatti.component';
+import { NewRecipeComponent } from './components/new-recipe/new-recipe.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { loggedInGuard, adminGuard } from './logged-in.guard';
 
 const routes: Routes = [
   {path: '',redirectTo: 'home',pathMatch: 'full'},
@@ -15,6 +20,10 @@ const routes: Routes = [
     {path: '',component: RecipesListComponent,pathMatch: 'full'},
   ]},
   {path: 'registration', component: RegistrationComponent},
+  {path: 'contatti', component: ContattiComponent},
+  {path: 'newrecipe', component: NewRecipeComponent, canActivate: [adminGuard]},
+  {path: 'login', component: LoginComponent},
+  {path: 'profile', component: ProfileComponent,canActivate: [loggedInGuard]},
 
   {path: '**',redirectTo: 'home'}
 ];

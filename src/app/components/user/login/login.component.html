@@ -1,0 +1,60 @@
+<!-- <div id="container-login">
+  <form #form="ngForm">
+    <div>
+      <div class="container-row">
+        <p-floatLabel>
+          <input id="username" type="text" pInputText ngModel name="email" />
+          <label for="username">Username</label>
+        </p-floatLabel>
+      </div>
+      <div class="container-row">
+        <p-floatLabel>
+          <p-password id="password" ngModel name="password" [feedback]="false" [toggleMask]="true" />
+          <label for="password">Password</label>
+        </p-floatLabel>
+      </div>
+      <div id="error-message" *ngIf="errormessage.length">
+        {{errormessage}}
+      </div>
+      <div id="container-btn">
+        <button pButton pRipple label="Accedi" icon="pi pi-check" class="p-button-success"
+          (click)="onSubmit(form.value)">
+        </button>
+      </div>
+    </div>
+  </form>
+  <div>
+    <a routerLink="/registrazione">Se ancora non sei registrato clicca qui per registrarti</a>
+  </div>
+</div> -->
+
+
+<div id="container-login">
+  <form #form="ngForm" class="login-form">
+    <div>
+      <div class="container-row">
+        <p-floatLabel>
+          <input id="username" type="text" pInputText ngModel name="email" class="input-field" />
+          <label for="username">Username</label>
+        </p-floatLabel>
+      </div>
+      <div class="container-row">
+        <p-floatLabel>
+          <p-password id="password" ngModel name="password" [feedback]="false" [toggleMask]="true" class="input-field" />
+          <label for="password">Password</label>
+        </p-floatLabel>
+      </div>
+      <div id="error-message" *ngIf="errormessage.length" class="error-message">
+        {{errormessage}}
+      </div>
+      <div id="container-btn">
+        <button pButton pRipple label="Accedi" icon="pi pi-check" class="p-button-success login-btn"
+          (click)="onSubmit(form.value)">
+        </button>
+      </div>
+    </div>
+  </form>
+  <div class="register-link">
+    <a routerLink="/registrazione">Se ancora non sei registrato clicca qui per registrarti</a>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.cornice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 600px;
+  padding: 70px;
+
+}
+.subCornice[_ngcontent-ng-c586939424] {
+  background-color: lightblue;
+  height: 100%;
+  display: grid;
+  padding: 20px;
+  border: 1px solid blue;
+  border-radius: 10px;
+}

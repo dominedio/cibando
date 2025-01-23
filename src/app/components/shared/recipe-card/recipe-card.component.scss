@@ -1,10 +1,6 @@
 @import "../../../styles/colori.scss";
 
-.container-card{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
+
 
   .card-image{
     height: 200px;
@@ -20,4 +16,4 @@
   .card-text{
     text-align: justify;
   }
-}
+

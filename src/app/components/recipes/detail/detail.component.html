@@ -5,7 +5,7 @@
   <div class="container-space"></div>
   <h4>{{ricetta.title}}</h4>
   <div class="container-space"></div>
-  <div class="padding">{{ricetta.description}}</div>
+  <div class="padding" [innerHTML]="ricetta.description"></div>
   <div class="container-space"></div>
   <h6>Difficoltà:</h6>
   <p>

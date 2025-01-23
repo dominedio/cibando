@@ -4,7 +4,12 @@
   <h1 [ngClass]="evideziato ? 'testoEvidenziato' : ''" (click)="onEvidenziazione()" style="cursor: pointer;">Benvenuti in Cibando</h1>
   <p [ngStyle]="{'background-color': evideziato ? 'yellow' : 'white'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ab possimus repudiandae, explicabo impedit nesciunt dicta non quae id ipsa vel, laborum quas, magni natus. Sint minus veniam obcaecati tempore?</p>
 <h2>Ultime Ricette</h2>
-  <app-recipe-card [ricette]="ricette"></app-recipe-card>
+<div id="container-cards">
+  <div class="container-card" *ngFor="let ricetta of ricette">
+    <app-recipe-card [ricetta]="ricetta" [page]="'home'"></app-recipe-card>
+  </div>
+</div>
+
 </div>
 
 
@@ -32,7 +37,7 @@
 	<div class="modal-body">
 		<h3>Ecco i tuoi dati</h3>
     <ul>
-      <li>Nome: {{this.datiRegistrazione['nome']}}</li>
+      <li>Nome: {{this.datiRegistrazione ['nome']}}</li>
       <li>Nome: {{this.datiRegistrazione['email']}}</li>
     </ul>
 	</div>

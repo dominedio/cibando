@@ -13,7 +13,21 @@
         <a class="nav-link" routerLink="ricette"><i class="pi pi-book"></i>Ricette</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="registration"><i class="pi pi-envelope"></i>Contatti</a>
+        <a class="nav-link" routerLink="contatti"><i class="pi pi-envelope"></i>Contatti</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="registration"><i class="pi pi-user"></i>Registrazione</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="login"><i class="pi pi-user"></i>Login</a>
+      </li>
+      <li class="nav-item autenticato" *ngIf="authservice.islogged()">
+          <div><i class="pi pi-user" style="font-size: 1rem"></i>Ciao {{user?.name}}</div>
+          <a routerLink="profile">- Profilo -</a>
+          <a (click)="logout()">Esci</a>
+    </li>
+      <li class="nav-item" *ngIf="isAdmin()">
+        <a class="nav-link" routerLink="newrecipe"><i class="pi pi-envelope"></i>Nuova Ricetta</a>
       </li>
     </ul>
   </div>

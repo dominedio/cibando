@@ -22,5 +22,14 @@ body{
   top: -5px;
 }
 
+#container-cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 50px;
+}
+
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
