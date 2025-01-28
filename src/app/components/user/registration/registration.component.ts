@@ -31,7 +31,7 @@ export class RegistrationComponent {
     const dati = {nome : this.form.controls.name.value, email : this.form.controls.email.value};
     this.userService.datiUser.next(dati);
     this.userService.saveUser(this.form.value).subscribe({
-      next : (res) => {console.log("tutto appostp")
+      next : (res) => {console.log("tutto appost")
         this.router.navigateByUrl('home')
       },
       error : (e)  => console.log(e)

@@ -13,8 +13,8 @@ export class RecipeService {
 
    }
 
-  postRecipe(recipe: Recipe){
-    this.http.post(`${this.apiBaseUrl}/`,recipe)
+  postRecipe(recipe: Recipe): Observable<any>{
+    return this.http.post<any>(`${this.apiBaseUrl}/`,recipe)
   }
 
   getRecipe():Observable<Recipe[]>{
@@ -26,5 +26,9 @@ export class RecipeService {
     // const recipe = RECIPES.find(ricetta=> ricetta._id === id);
     // return of(recipe);
     return this.http.get<Recipe>(`${this.apiBaseUrl}/${id}`)
+  }
+
+  delateRecipe(id:string): Observable<any>{
+    return this.http.delete<any>(`${this.apiBaseUrl}/${id}`)
   }
 }

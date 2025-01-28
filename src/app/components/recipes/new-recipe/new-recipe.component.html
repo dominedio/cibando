@@ -11,8 +11,9 @@
       </p>
     </div>
     <div>
-      <label for="descripition">Descrizione</label>
-      <p-editor formControlName="descripition" [style]="{ height: '320px' }" />
+      <label for="description">Descrizione</label>
+      <!-- <p-editor formControlName="description" [style]="{ height: '320px'  }" /> -->
+      <input type="text" id="description" formControlName="description">
       <p class="is-danger" *ngIf="!form.get('description')?.valid && form.get('description')?.touched">
         il campo descrizione è obbligatorio
       </p>

@@ -13,6 +13,7 @@ const routes: Routes = [
       {path: 'dettaglio/:title/:_id',component: DetailComponent},
       {path: 'list',component: RecipesListComponent,pathMatch: 'full'},
       {path: 'newrecipe', component: NewRecipeComponent, canActivate: [adminGuard]},
+      {path: 'edit/:_id', component: NewRecipeComponent, canActivate: [adminGuard]},
       {path: '', component: RecipesListComponent, pathMatch: 'full'}
   ]},
 ]

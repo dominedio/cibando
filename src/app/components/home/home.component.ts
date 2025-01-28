@@ -33,7 +33,7 @@ export class HomeComponent {
   ){
       this.recipeService.getRecipe().subscribe({
         next:(res) => {
-          this.ricette = res.sort((a,b)=>b._id-a._id).slice(0,4);
+          this.ricette = res.sort((a,b)=>b.difficulty-a.difficulty).slice(0,4);
         },
         error: (e) => console.log(e)
       });
