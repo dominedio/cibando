@@ -1,4 +1,3 @@
-<h2>Le nostre ricette size {{size}}  page {{page}}</h2> - {{titoloRicevuto}}
 <div id="container-cards">
   <div class="container-card" *ngFor="let ricetta of recipes$ | async | slice: (page * size) - size : page * size">
     <app-recipe-card [ricetta]="ricetta" (messaggio)="riceviTitolo($event)"></app-recipe-card>

@@ -1,13 +1,16 @@
-import { UserService } from './../../services/user.service';
+import { UserService } from '../../services/user.service';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
 import { Recipe } from '../../models/recipes.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from "@angular/common";
+import { CaroselComponent } from '../shared/carosel/carosel.component';
+import { RecipesModule } from '../recipes/recipes.module';
 
 @Component({
   selector: 'app-home',
-  standalone: false,
-
+  standalone: true,
+  imports:[CommonModule, CaroselComponent, RecipesModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
