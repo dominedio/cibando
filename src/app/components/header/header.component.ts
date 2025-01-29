@@ -2,6 +2,7 @@ import { AuthService } from './../../services/auth.service';
 import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
+import { RecipeService } from '../../services/recipe.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class HeaderComponent {
 
   constructor(
     private router : Router,
-    public authservice : AuthService
+    public authservice : AuthService,
+    private recipeService : RecipeService
   ){}
 
   ngDoCheck(): void{
@@ -29,7 +31,8 @@ export class HeaderComponent {
   }
 
   searching(){
-
+    this.recipeService.updateRecipe(this.searchValue());
+    this.router.navigateByUrl('/ricette/search');
   }
 
   logout(){

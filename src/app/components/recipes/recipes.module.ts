@@ -31,6 +31,7 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipesComponent } from './recipes.component';
 import { DetailComponent } from './detail/detail.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
+import { SearchListComponent } from "./search-list/search-list.component";
 
 registerLocaleData(localeIt, 'it');
 
@@ -41,6 +42,7 @@ registerLocaleData(localeIt, 'it');
     RecipesComponent,
     DetailComponent,
     RecipeCardComponent,
+    SearchListComponent
   ],
   imports:[
     ToastModule,

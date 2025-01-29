@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RecipeService } from './../../../services/recipe.service';
 import { Recipe } from '../../../models/recipes.model';
 import { first, map, Observable, take } from 'rxjs';
+import { Router } from '@angular/router';
 
 interface PageEvent {
   first: number;
@@ -26,16 +27,21 @@ export class RecipesListComponent {
 
   first: number = 0;
   rows: number = 10;
-  page = 1;
-  size = 4;
-
+  page : number;
+  size : number;
+  url : string[];
+  
   recipes$ = this.recipeService.getRecipe().pipe(  //il dolaro è una covenzione per capire che è una chiamata gestita con pipe async
     map(response => response.filter(ricetteFiltrate => ricetteFiltrate.difficulty< 6)),
     map(res => this.totaleRicette = res)
   )
   totaleRicette : Recipe[] = [];
 
-  constructor(){
+
+  constructor(private route : Router){
+    this.url = this.route.url.split('/');
+    this.page = Number(this.url[4]);
+    this.size = Number(this.url[6]);
       // this.getRecipe;
     }
 
@@ -54,8 +60,9 @@ export class RecipesListComponent {
 
     onPageChange(event) {
         event.page = event.page+1;
-        this.page = event.page;
-        this.size = event.rows;
+        // this.page = event.page;
+        // this.size = event.rows;
+        this.route.navigateByUrl(`/ricette/list/pages/${event.page}/size/${event.rows}`)
 
     }
 

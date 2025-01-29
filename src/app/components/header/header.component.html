@@ -10,7 +10,7 @@
         <a class="nav-link" routerLink="home"><i class="pi pi-home"></i>Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="ricette/list"><i class="pi pi-book"></i>Ricette</a>
+        <a class="nav-link" routerLink="ricette/list/pages/1/size/4"><i class="pi pi-book"></i>Ricette</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="contatti"><i class="pi pi-envelope"></i>Contatti</a>
@@ -33,7 +33,7 @@
         <p-floatLabel>
           <input pInputText id="search" [(ngModel)]="searchValue" />
           <label for="search">Search</label>
-          <p-button (click)="searchValue()" icon="pi pi-search" rounded="true"/>
+          <p-button (click)="searching()" icon="pi pi-search" rounded="true"/>
         </p-floatLabel>
       </li>
     </ul>

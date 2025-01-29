@@ -57,9 +57,10 @@ export class NewRecipeComponent {
     console.log(this.recipe);
 
     if (url[2]==='edit'){
-
+      this.service.putRecipe(this.recipe,url[3]);
+      this.route.navigateByUrl(`/ricette/list/pages/${localStorage.getItem("page")}/size/${localStorage.getItem("size")}`);
     }else{
-      this.service.postRecipe(this.recipe,url[3]);
+      this.service.postRecipe(this.recipe);
     }
   }
 }

@@ -1,6 +1,6 @@
 import { Recipe } from './../models/recipes.model';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
@@ -8,16 +8,35 @@ import { HttpClient } from '@angular/common/http';
 export class RecipeService {
 
   apiBaseUrl = "api/recipes";
+  // private _recipe: BehaviorSubject<Recipe[]> = new BehaviorSubject(null);
+  private _search: BehaviorSubject<string> = new BehaviorSubject(null);
+
+
+  // recipes$ = this._recipe.asObservable();
+  search$ = this._search.asObservable();
+
 
   constructor(private http: HttpClient){
 
-   }
+  }
 
-  putRecipe(recipe: Recipe): Observable<any>{
+  // updateRecipe(recipe: Recipe[]) {
+  //   this._recipe.next(recipe);
+  // }
+
+  updateRecipe(search: string) {
+    this._search.next(search);
+  }
+
+  searchRecipe(search: string): Observable<any>{
+    return this.http.get<any>(`${this.apiBaseUrl}/cerca/${search}`);
+  }
+
+  postRecipe(recipe: Recipe): Observable<any>{
     return this.http.post<any>(`${this.apiBaseUrl}/`,recipe);
   }
 
-  postRecipe(recipe: Recipe, id: string): Observable<any>{
+  putRecipe(recipe: Recipe, id: string): Observable<any>{
     return this.http.put<any>(`${this.apiBaseUrl}/${id}`,recipe);
   }
 

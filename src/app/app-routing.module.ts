@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'contatti', loadComponent: () => ContattiComponent},
   {path: 'user', loadChildren: () => import("./components/user/user.module").then(module => module.UserModule)},
   {path: 'ricette', loadChildren: () => import("./components/recipes/recipes.module").then(module => module.RecipesModule)},
-  {path: '**',redirectTo: 'home'}
+  //{path: '**',redirectTo: 'home'}
 ];
 
 @NgModule({

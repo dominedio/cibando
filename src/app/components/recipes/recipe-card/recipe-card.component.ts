@@ -27,7 +27,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
           [routerLink]="['/ricette/dettaglio',ricetta.title , ricetta._id]">Dettaglio</a>
         @if (true) {
           <div class="icon">
-            <a [routerLink]="['/ricette/edit', ricetta._id]" class="pi pi-pencil " style="color: darkcyan"></a>
+            <a (click)="edit()" class="pi pi-pencil " style="color: darkcyan"></a>
           </div>
           <div class="icon">
             <!-- <a (click)="deleteres()"  class="pi pi-trash" style="color: red"></a> -->
@@ -55,6 +55,18 @@ export class RecipeCardComponent {
   private service = inject(RecipeService);
   private domSanitizer = inject(DomSanitizer);
   private router = inject(Router);
+  url : string[];
+
+  constructor(){
+    this.url = this.router.url.split('/');
+      // this.getRecipe;
+    }
+
+  edit(){
+    localStorage.setItem("page",this.url[4]);
+    localStorage.setItem("size",this.url[6]);
+    this.router.navigateByUrl(`/ricette/edit/${this.ricetta._id}`);
+  }
 
   inviaTitolo(titolo: string){
     this.messaggio.emit(titolo);
