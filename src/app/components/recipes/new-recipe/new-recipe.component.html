@@ -1,5 +1,9 @@
 <div class="center">
-  <h1>Inserisci la nuova ricetta</h1>
+  @if(editMode){
+    <h1>Modifica la ricetta</h1>
+  }@else {
+    <h1>Inserisci la nuova ricetta</h1>
+  }
 </div>
 <div class="center">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">

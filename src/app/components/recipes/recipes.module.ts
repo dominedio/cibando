@@ -13,11 +13,17 @@ import { PaginatorModule } from 'primeng/paginator';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RatingModule } from 'primeng/rating';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
+
 
 import { DatePipe } from '@angular/common';
 import { LOCALE_ID } from '@angular/core';
 import localeIt from '@angular/common/locales/it';  // Importa la localizzazione italiana
 import { registerLocaleData } from '@angular/common';
+
+import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
@@ -37,6 +43,8 @@ registerLocaleData(localeIt, 'it');
     RecipeCardComponent,
   ],
   imports:[
+    ToastModule,
+    ConfirmDialogModule,
     RecipesRoutingModule,
     NgbModule,
     CommonModule,
@@ -56,7 +64,9 @@ registerLocaleData(localeIt, 'it');
   ],
   providers:[
     { provide: LOCALE_ID, useValue: 'it' },  // Imposta la lingua predefinita su italiano
-    DatePipe
+    DatePipe,
+    ConfirmationService,
+    MessageService
   ]
 })
 

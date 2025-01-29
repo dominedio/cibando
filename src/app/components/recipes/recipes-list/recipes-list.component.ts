@@ -30,10 +30,10 @@ export class RecipesListComponent {
   size = 4;
 
   recipes$ = this.recipeService.getRecipe().pipe(  //il dolaro è una covenzione per capire che è una chiamata gestita con pipe async
-    map(response => response.filter(ricetteFiltrate => ricetteFiltrate.difficulty< 3)),
+    map(response => response.filter(ricetteFiltrate => ricetteFiltrate.difficulty< 6)),
     map(res => this.totaleRicette = res)
   )
-  totaleRicette : Recipe[];
+  totaleRicette : Recipe[] = [];
 
   constructor(){
       // this.getRecipe;

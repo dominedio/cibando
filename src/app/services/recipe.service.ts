@@ -13,8 +13,12 @@ export class RecipeService {
 
    }
 
-  postRecipe(recipe: Recipe): Observable<any>{
-    return this.http.post<any>(`${this.apiBaseUrl}/`,recipe)
+  putRecipe(recipe: Recipe): Observable<any>{
+    return this.http.post<any>(`${this.apiBaseUrl}/`,recipe);
+  }
+
+  postRecipe(recipe: Recipe, id: string): Observable<any>{
+    return this.http.put<any>(`${this.apiBaseUrl}/${id}`,recipe);
   }
 
   getRecipe():Observable<Recipe[]>{

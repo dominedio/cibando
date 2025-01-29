@@ -4,6 +4,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { RecipeService } from '../../../services/recipe.service';
 import { Router } from '@angular/router';
 
+import { ConfirmationService, MessageService } from 'primeng/api';
+
 @Component({
   selector: 'app-recipe-card',
   standalone: false,
@@ -28,7 +30,10 @@ import { Router } from '@angular/router';
             <a [routerLink]="['/ricette/edit', ricetta._id]" class="pi pi-pencil " style="color: darkcyan"></a>
           </div>
           <div class="icon">
-            <a (click)="deleteres()"  class="pi pi-trash" style="color: red"></a>
+            <!-- <a (click)="deleteres()"  class="pi pi-trash" style="color: red"></a> -->
+            <p-toast />
+            <p-confirmDialog />
+            <p-button (click)="confirmDelete($event)" icon="pi pi-trash" severity="danger" [outlined]="true" />
           </div>
         }
       </div>
@@ -45,6 +50,8 @@ export class RecipeCardComponent {
 
   @Output() messaggio = new EventEmitter();
 
+  private confirmationService = inject(ConfirmationService);
+  private messageService = inject(MessageService);
   private service = inject(RecipeService);
   private domSanitizer = inject(DomSanitizer);
   private router = inject(Router);
@@ -79,4 +86,30 @@ export class RecipeCardComponent {
     }
   }
 
+  confirmDelete(event : Event){
+
+          // acceptButtonProps: {
+          //     label: 'Delete',
+          //     severity: 'danger',
+          // },
+
+      this.confirmationService.confirm({
+        target: event.target as EventTarget,
+        message: 'Vuoi eliminare questa ricetta ?',
+        header: 'Conferma di Cancellazione',
+        icon: 'pi pi-info-circle',
+        acceptButtonStyleClass:"p-button-danger p-button-text",
+        rejectButtonStyleClass:"p-button-text p-button-text",
+        acceptIcon:"none",
+        rejectIcon:"none",
+
+        accept: () => {
+            this.deleteres();
+            this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
+        },
+        reject: () => {
+            this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+        }
+    });
+  }
 }

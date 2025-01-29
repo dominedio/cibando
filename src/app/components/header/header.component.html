@@ -25,9 +25,16 @@
           <div><i class="pi pi-user" style="font-size: 1rem"></i>Ciao {{user?.name}}</div>
           <a routerLink="user/profile">- Profilo -</a>
           <a (click)="logout()">Esci</a>
-    </li>
+      </li>
       <li class="nav-item" *ngIf="isAdmin()">
         <a class="nav-link" routerLink="ricette/newrecipe"><i class="pi pi-envelope"></i>Nuova Ricetta</a>
+      </li>
+      <li>
+        <p-floatLabel>
+          <input pInputText id="search" [(ngModel)]="searchValue" />
+          <label for="search">Search</label>
+          <p-button (click)="searchValue()" icon="pi pi-search" rounded="true"/>
+        </p-floatLabel>
       </li>
     </ul>
   </div>

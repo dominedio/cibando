@@ -1,5 +1,5 @@
 import { AuthService } from './../../services/auth.service';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 
@@ -14,6 +14,7 @@ import { User } from '../../models/user.model';
 export class HeaderComponent {
   isGioele = true;
   user: User;
+  searchValue = signal('');
 
   constructor(
     private router : Router,
@@ -25,6 +26,10 @@ export class HeaderComponent {
     // if(JSON.parse(localStorage.getItem('user'))!==null) {
     //   this.user = JSON.parse(localStorage.getItem('user'));
     // }
+  }
+
+  searching(){
+
   }
 
   logout(){

@@ -14,6 +14,7 @@ import { RecipeService } from '../../../services/recipe.service';
 export class NewRecipeComponent {
 
   recipe : Recipe | undefined;
+  editMode = false;
 
 
   form = new FormGroup({
@@ -26,6 +27,7 @@ export class NewRecipeComponent {
   constructor(private route : Router, private service : RecipeService){
     const url = this.route.url.split('/');
     if(url[2]==='edit'){
+      this.editMode = true;
       this.service.getDetail(url[3]).subscribe({
         next : (res) => {
           this.recipe = res
@@ -38,11 +40,12 @@ export class NewRecipeComponent {
         }
       })
 
-    }
+    }else {this.editMode = false;}
     console.log(url)
   }
 
   onSubmit(){
+    const url = this.route.url.split('/');
     console.log(this.form.value);
     this.recipe = {
       title: this.form.value.title,
@@ -51,7 +54,12 @@ export class NewRecipeComponent {
       difficulty: this.form.value.difficulty,
       published: true
     }
-
     console.log(this.recipe);
+
+    if (url[2]==='edit'){
+
+    }else{
+      this.service.postRecipe(this.recipe,url[3]);
+    }
   }
 }
